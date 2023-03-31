@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"log"
@@ -9,12 +9,16 @@ import (
 	gonanoid "github.com/matoous/go-nanoid/v2"
 )
 
+const (
+	quantityId = 10000000
+)
+
 func SequentialGenID() {
 	log.Println("GEN TUAN TU 10.000.000 ID !!!")
 
 	// nanoid gen ID tuan tu: thoi gian  gen 10.000.000 ID khoang 5.16s
 	log.Printf("time start nanoid: %s", time.Now())
-	for i := 0; i < 10000000; i++ {
+	for i := 0; i < quantityId; i++ {
 		id, _ := gonanoid.New()
 		if i == 9999999 {
 			log.Println(id)
@@ -25,7 +29,7 @@ func SequentialGenID() {
 
 	// uuid gen ID tuan tu: thoi gian  gen 10.000.000 ID khoang 3.30s
 	log.Printf("time start uuid: %s", time.Now())
-	for i := 0; i < 10000000; i++ {
+	for i := 0; i < quantityId; i++ {
 		id := uuid.New()
 		if i == 9999999 {
 			log.Println(id)
@@ -37,7 +41,7 @@ func SequentialGenID() {
 	// snowflake gen ID tuan tu: thoi gian gen 10.000.000 ID khoang 2,44s
 	n, _ := snowflake.NewNode(1)
 	log.Printf("time start snowflake : %s", time.Now())
-	for i := 0; i < 10000000; i++ {
+	for i := 0; i < quantityId; i++ {
 		// tạo ID
 		id := n.Generate()
 		if i == 9999999 {

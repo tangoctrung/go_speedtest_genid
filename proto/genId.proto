@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package trungtn.grpc;
+
+option go_package = "pb";
+
+message GenIDRequest {
+}
+
+message GenIDResponse {
+    string id = 1;
+}
+
+service GenIDService {
+    rpc GenIDWithUUID(GenIDRequest) returns (GenIDResponse) {}
+    rpc GenIDWithSnowflake(GenIDRequest) returns (GenIDResponse) {}
+}
