@@ -26,3 +26,7 @@ export default () => {
 
   client.close();
 };
+
+// RUN:  k6 run script.js
+// or :  k6 run --vus 100 --duration 100s script.js
+//  100 user goi api trong 100s
